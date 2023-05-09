@@ -1,9 +1,11 @@
 import './App.css';
+import AddMessage from './components/AddMessage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      welcome to the message board
+      <AddMessage />
     </div>
   );
 }
