@@ -3,17 +3,23 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors')
+const bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
+const port = process.env.PORT || 1234
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
+app.use(cors())
+app.use(bodyParser.json())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -37,5 +43,16 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.get('/', (req,res) => {
+  res.json({
+      message: 'Welcome to my full stack message board app'
+    }  
+  )
+})
+
+app.listen(port, () => {
+  console.log(`listening on PORT: ${port}`)
+})
 
 module.exports = app;
