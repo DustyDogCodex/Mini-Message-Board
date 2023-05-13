@@ -1,13 +1,12 @@
 import { Container } from "react-bootstrap";
-import messages from "./Messages";
 
-function MessageBoard(){
+function MessageBoard({ messages }){
 
     //message elements
     const messageElements = messages.map((message,index) => {
-        return ( <div key={index}>{message.msg} by {message.name}</div>  )
+        return ( <div key={index}>{message.message} at {message.createdAt}</div>  )
     })
-
+    console.log(messages)
     return(
         <Container>
             {messageElements}
