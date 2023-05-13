@@ -1,12 +1,26 @@
+import axios from 'axios'
 import { useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 
-
-function AddMessage(){
+function AddMessage({ url }){
 
     //state variables to track form input
     const [name, setName] = useState('')
     const [message, setMessage] = useState('')
+
+    //POST messages
+    async function createMessages(name,message){
+
+        return axios.post(url, {
+            name: name,
+            message: message
+        }).catch(function(error) {
+            console.log(error.toJSON());
+        }).then(setTimeout(() => {
+                document.location.reload();
+            }, 2000)
+        )
+    }
 
     function handleName(e){
         setName(e.target.value)
@@ -17,6 +31,7 @@ function AddMessage(){
     }
 
     function submitMessage(){
+        createMessages(name,message)
         setName('')
         setMessage('')
     }
@@ -34,7 +49,7 @@ function AddMessage(){
                 <Form.Control type="text" placeholder="Enter your message!" value={message}onChange={handleMessage}/>
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={() => submitMessage()}>
+            <Button variant="primary" type="button" onClick={() => submitMessage()}>
                 Submit your message!
             </Button>
         </Form>

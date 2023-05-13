@@ -5,9 +5,9 @@ function MessageBoard({ messages }){
 
     //message elements
     const messageElements = messages.map((message,index) => {
-        return ( <Message key={index} message={message.message} createdAt={message.createdAt}/> )
+        return ( <Message key={index} name={message.name} message={message.message} createdAt={message.createdAt}/> )
     })
-    console.log(messages)
+
     return(
         <Container>
             {messageElements}

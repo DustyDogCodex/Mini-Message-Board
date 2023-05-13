@@ -33,12 +33,8 @@ function App() {
     getMessages()
   },[])
 
-  //POST messages
-  function createMessages(text){
-    return axios.post(url, {
-      message: text
-    })
-  }
+  //POST Messages
+  //function to post messages to database is inside the AddMessage component!
 
   //DELETE messages
   function deleteMessages(id){
@@ -48,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <NavComponent />
-      <AddMessage />
+      <AddMessage url={url}/>
       <MessageBoard messages={messages}/>
     </div>
   );
