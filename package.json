@@ -1,0 +1,26 @@
+{
+  "name": "mini-message-board",
+  "version": "1.0.0",
+  "description": "mini-message board built using React and Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "keywords": [
+    "reactjs",
+    "express",
+    "full-stack"
+  ],
+  "author": "Varun Malaviya",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^5.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
