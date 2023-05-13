@@ -20,6 +20,13 @@ router.post('/', async (req,res) => {
     res.status(201).send()
 })
 
+//DELETE requests
+router.delete('/:id', async (req,res) => {
+    const messages = await loadMessages()
+    await messages.deleteOne({ _id: new mongodb.ObjectId(req.params.id) })
+    res.status(200).send()
+})
+
 //mongodb connection to connect to database
 async function loadMessages(){
     const client = await mongodb.MongoClient.connect(process.env.DB_connection_string, {
