@@ -15,7 +15,7 @@ router.post('/', async (req,res) => {
     const messages = await loadMessages()
     await messages.insertOne({
         message: req.body.text,
-        createdAt: new Date()
+        createdAt: new Intl.DateTimeFormat('en-US')
     })
     res.status(201).send()
 })
