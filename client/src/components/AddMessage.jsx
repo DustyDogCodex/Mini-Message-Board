@@ -8,7 +8,7 @@ function AddMessage({ url }){
     const [name, setName] = useState('')
     const [message, setMessage] = useState('')
 
-    //POST messages
+    //POST request for messages
     async function createMessages(name,message){
 
         return axios.post(url, {
@@ -31,28 +31,54 @@ function AddMessage({ url }){
     }
 
     function submitMessage(){
-        createMessages(name,message)
-        setName('')
-        setMessage('')
+        if(message){
+            createMessages(name,message)
+            setName('')
+            setMessage('')
+        } else {
+            alert('Please enter a valid message')
+        }
     }
 
     return(
         <Container className='p-5 d-flex justify-content-center align-items-center'>
-        <Form className='add-message p-5 text-light'>
+
+        <Form 
+            noValidate 
+            className='add-message p-5 text-light'   
+        >
+
             <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name: </Form.Label>
-                <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleName}/>
+                <Form.Control 
+                    type="text"
+                    placeholder="Enter your name" 
+                    value={name} 
+                    onChange={handleName}
+                />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formMessage">
                 <Form.Label>Message: </Form.Label>
-                <Form.Control type="text" placeholder="Enter your message!" value={message}onChange={handleMessage}/>
+                <Form.Control 
+                    required 
+                    type="text" 
+                    placeholder="Enter your message!" 
+                    value={message}
+                    onChange={handleMessage}
+                />
             </Form.Group>
 
-            <Button variant="success" type="button" onClick={() => submitMessage()}>
+            <Button 
+                variant="success" 
+                type="button" 
+                onClick={() => submitMessage()} 
+            >
                 Submit your message!
             </Button>
+
         </Form>
+
         </Container>
     );
 }
