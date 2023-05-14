@@ -13,7 +13,7 @@ async function loadMessages(){
     return client.db('message-board').collection('messages')
 }
 
-const messages = await loadMessages()
+const messages = loadMessages()
 
 //GET requests
 router.get('/', async (req,res) => {
