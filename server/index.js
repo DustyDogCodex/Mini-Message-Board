@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
 const { MongoClient } = require('mongodb')
+require('dotenv').config
 
 //initialise app with express application object
 const app = express()
