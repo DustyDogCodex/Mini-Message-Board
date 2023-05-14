@@ -16,9 +16,11 @@ app.use('/messages', messages)
 
 const port = process.env.PORT || 5000
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 app.get('/*', (req,res) => {
     res.sendFile(
-        path.join(__dirname, "/client/build/index.html"),
+        res.sendFile(path.join(__dirname, 'build', 'index.html')),
         function(err){
             if(err){
                 res.status(500).send(err)
