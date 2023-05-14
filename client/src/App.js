@@ -13,11 +13,6 @@ function App() {
   //state variables for keeping track of messages on display
   const [messages , setMessages] = useState([])
 
-  //GET messages
-  /* function getMessages() {
-    return new Promise(
-  } */
-
   //useEffect hook to connect to our server API
   useEffect(() => {
     const getMessages = async() => {
@@ -28,7 +23,7 @@ function App() {
           ...message,
           createdAt: message.createdAt
         })
-      ))
+      ).reverse())
     }
     getMessages()
   },[])
@@ -37,6 +32,7 @@ function App() {
   //function to post messages to database is inside the AddMessage component!
 
   //DELETE messages
+  //will add a small function to ask for a secret password before letting users delete posts.
   function deleteMessages(id){
     return axios.delete(`${url}${id}`)
   }

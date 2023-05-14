@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function NavComponent(){
     return (
-        <Navbar bg="primary" variant="dark">
+        <Navbar bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand href="#home">Mercury</Navbar.Brand>
                 <Nav className="me-auto">

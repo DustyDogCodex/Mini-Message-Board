@@ -37,7 +37,7 @@ function AddMessage({ url }){
     }
 
     return(
-        <Container className='p-5'>
+        <Container className='p-5 d-flex justify-content-center align-items-center'>
         <Form className='add-message p-5 text-light'>
             <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name: </Form.Label>
@@ -49,7 +49,7 @@ function AddMessage({ url }){
                 <Form.Control type="text" placeholder="Enter your message!" value={message}onChange={handleMessage}/>
             </Form.Group>
 
-            <Button variant="primary" type="button" onClick={() => submitMessage()}>
+            <Button variant="success" type="button" onClick={() => submitMessage()}>
                 Submit your message!
             </Button>
         </Form>

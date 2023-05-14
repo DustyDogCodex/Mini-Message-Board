@@ -2,19 +2,22 @@
     box-sizing: border-box;
 }
 
-body{
-    background: rgb(205, 92, 92);
+.App{
+    background: radial-gradient(rgb(60, 5, 27), black);
+    align-items: center;
+    height: 100%;
 }
 
 .add-message{
+    width: 60%;
     display: flex;
     flex-direction: column;
-    background:rgb(240, 128, 128, 0.6);
+    background:rgb(60, 5, 27);
     border-radius: 30px;
     border: 1px solid black;
 }
 
 .message{
-    border: 1px solid blue;
     border-radius: 20px ;
+    background: rgb(0, 231, 134);
 }
