@@ -39,7 +39,6 @@ function App() {
 
   return (
     <div className="App">
-      <NavComponent />
       <AddMessage url={url}/>
       <MessageBoard messages={messages}/>
     </div>
