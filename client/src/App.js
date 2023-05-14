@@ -4,11 +4,10 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import AddMessage from './components/AddMessage';
 import MessageBoard from './components/MessageBoard';
-import NavComponent from './components/NavComponent';
 
 function App() {
   //url for getting messages from. Using localhost for dev
-  const url = 'http://localhost:5000/messages/'
+  const url = 'messages/'
 
   //state variables for keeping track of messages on display
   const [messages , setMessages] = useState([])
@@ -33,9 +32,9 @@ function App() {
 
   //DELETE messages
   //will add a small function to ask for a secret password before letting users delete posts.
-  function deleteMessages(id){
+  /* function deleteMessages(id){
     return axios.delete(`${url}${id}`)
-  }
+  } */
 
   return (
     <div className="App">

@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-
+const path = require('path')
 
 //initialise app with express application object
 const app = express()
@@ -20,6 +20,13 @@ app.listen(port, () => [
     console.log(`listening on port: ${port}`)
 ])
 
-app.get('/', (req,res) => {
-    res.send("<h1>Welcome to my full stack message board!</h1>")
+app.get('/*', (req,res) => {
+    res.sendFile(
+        path.join(__dirname, "../client/build/index.html"),
+        function(err){
+            if(err){
+                res.status(500).send(err)
+            }
+        }
+    )
 })
