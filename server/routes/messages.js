@@ -13,15 +13,15 @@ async function loadMessages(){
     return client.db('message-board').collection('messages')
 }
 
-const messages = loadMessages()
-
 //GET requests
 router.get('/', async (req,res) => {
+    const messages = await loadMessages()
     res.send(await messages.find({}).toArray())
 })
 
 //POST requests
 router.post('/', async (req,res) => {
+    const messages = await loadMessages()
     await messages.insertOne({
         name: req.body.name,
         message: req.body.message,
@@ -32,6 +32,7 @@ router.post('/', async (req,res) => {
 
 //DELETE requests
 router.delete('/:id', async (req,res) => {
+    const messages = await loadMessages()
     await messages.deleteOne({ _id: new mongodb.ObjectId(req.params.id) })
     res.status(200).send()
 })
