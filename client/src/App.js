@@ -7,7 +7,7 @@ import MessageBoard from './components/MessageBoard';
 
 function App() {
   //url for getting messages from. Using localhost for dev
-  const url = 'https://difficult-suit-pig.cyclic.app/messages/'
+  const url = 'messages/'
 
   //state variables for keeping track of messages on display
   const [messages , setMessages] = useState([])
