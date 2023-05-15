@@ -2,8 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
-const { MongoClient } = require('mongodb')
-require('dotenv').config
 
 //initialise app with express application object
 const app = express()
@@ -11,9 +9,6 @@ const app = express()
 //middleware
 app.use(bodyParser.json())
 app.use(cors())
-
-const url = process.env.DB_connection_string
-const client = new MongoClient(url)
 
 const messages = require('./routes/messages')
 
@@ -34,12 +29,7 @@ app.get('/*', (req,res) => {
     )
 })
 
-//mongo client needs to finish loading before app can serve requests
-
-client.connect(err => {
-    if(err){ console.error(err); return false;}
-    // connection to mongo is successful, listen for requests
-    app.listen(port, () => {
-        console.log("listening for requests");
-    })
-});
+// connection to mongo is successful, listen for requests
+app.listen(port, () => {
+    console.log(`listening for requests on port: ${port}`);
+})
