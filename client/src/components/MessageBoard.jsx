@@ -9,7 +9,7 @@ function MessageBoard({ messages }){
     })
 
     return(
-        <Container className="p-5">
+        <Container className="p-3">
             {messageElements}
         </Container>
     )
