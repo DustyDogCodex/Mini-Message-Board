@@ -41,7 +41,7 @@ function AddMessage({ url }){
     }
 
     return(
-        <Container className='p-5 d-flex justify-content-center align-items-center'>
+        <Container className='p-4 d-flex justify-content-center align-items-center'>
 
         <Form 
             noValidate 
