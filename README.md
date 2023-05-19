@@ -2,7 +2,7 @@
 
 ![message-received](https://tenor.com/view/received-message-received-jim-carrey-gif-13274562.gif)
 
-<a href="https://mini-message-board-production-83b4.up.railway.app/">LIVE DEMO</a>
+<a href="https://mini-message-board-production-83b4.up.railway.app/" target="_blank" rel="noopener noreferrer">LIVE DEMO</a>
 
 Created a mini message board using ReactJS and Express.
 
