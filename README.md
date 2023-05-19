@@ -27,3 +27,5 @@ Future enhancements/features to be added:
 2. Adding authentication using PassportJS to allow users to create accounts and track their messages/message history.
 
 3. Allowing users to add images/gifs along with their messages.
+
+4. Adding a loading animation/screen while the app is loading messages.
